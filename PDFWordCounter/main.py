@@ -17,10 +17,11 @@ def text_from_pdf(pdf_file: str) -> list[str]:
 def word_count(text_list: list[str]) -> Counter:
     words: list[str] = []
     for text in text_list:
-      """ I read that this method of splitting is better because it will eliminate all the interpunction and symbols. e.g. 'text!' after this split will be 'text'. a normal 'split' method wont be like that."""
         split_text: list[str] = re.split(r"\s+|[,;?!.-]\s+", text.lower())
 
         words += [word for word in split_text if word]
+    print(f"Amount of words: {len(words)}")
+    print("-" * 10)
 
     return Counter(words)
 
@@ -30,6 +31,9 @@ def main():
     counter: Counter = word_count(text_list=given_text)
     for page in given_text:
         print(page)
+    print("-" * 10)
+    print("Most common words in text: ")
+    print()
     for word, mentions in counter.most_common(5):
         print(f'{word:10}: {mentions} times')
 
