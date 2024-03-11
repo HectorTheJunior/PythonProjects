@@ -12,13 +12,13 @@ class Coordinates:
         return self.latitude, self.longitude
 
 
-def calculate_distance_km(home, target):
+def calculate_distance_km(home, target) -> float|None:
     if home and target:
         distance = geodesic(home.coordinates(), target.coordinates()).km
     return distance
 
 
-def get_distance_km(home, target):
+def get_distance_km(home: str, target: str) -> float|None:
     home_coors = get_coordinates(home)
     target_coors = get_coordinates(target)
 
