@@ -1,5 +1,6 @@
 from turtle import Screen, Turtle
 import random
+""" It's just for fun"""
 
 
 """Constants"""
